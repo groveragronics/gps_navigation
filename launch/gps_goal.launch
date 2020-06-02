@@ -1,0 +1,19 @@
+<!-- This launches a simulated GPS in an empty gazebo world
+       for this to work you need to install the gps plugin
+       http://wiki.ros.org/hector_gazebo_plugins
+    Install it:
+     sudo apt-get install ros-melodic-hector-gazebo-plugins  -->
+
+<launch>
+    <arg name="x" default="-12.5"/>
+    <arg name="y" default="-16.744947"/>
+    <arg name="z" default="0.02"/>
+    <arg name="use_sim_time" value="true"/>
+
+   
+    <!-- Throws the gps to the simulated world -->
+    <param name="robot_description" command="cat '$(find gps_navigation)/urdf/gpsgoal.urdf'" />
+    <node name="gps_spawn_goal" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model mygps -x $(arg x) -y $(arg y) -z $(arg z)" />
+
+
+</launch>
