@@ -23,8 +23,8 @@ class GPSPubClass():
       
     def get_cmd (self, msg):
         #Se leen valores de velocidad de nav2d_vel para multiplicarse y hacer que UMA se mueva mejor
-        self.robot_vel.linear.x = 1.2 * msg.linear.x 
-        self.robot_vel.angular.z = 4 * msg.angular.z
+        self.robot_vel.linear.x = 1.5 * msg.linear.x #1.5
+        self.robot_vel.angular.z = 4.6 * msg.angular.z #4.5   
      
     def cleanup(self):  
 
